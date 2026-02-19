@@ -56,10 +56,10 @@ A SwiftUI shopping list app built with SwiftData for persistent storage. Organiz
 
 ## Additional Support
 
-- Localization support via Xcode String Catalog with snake_case keys
+- Localization support via Xcode String Catalog
 - Dark mode support
 - Landscape and portrait orientation support
-- Unit tests (Swift Testing) and UI tests (XCUITest)
+- Unit tests (XCTest) and UI tests (XCUITest)
 
 ## Tests
 
