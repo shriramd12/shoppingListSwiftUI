@@ -6,12 +6,12 @@
 import SwiftUI
 
 struct ShoppingListView: View {
-    let selectedCategory: Category?
-    let filteredItems: [Item]
-    let groupedItems: [(category: Category, items: [Item])]
-    let onToggle: (Item) -> Void
-    let onEdit: (Item) -> Void
-    let onDelete: (Item) -> Void
+    let selectedCategory: ShoppingCategory?
+    let filteredItems: [ShoppingItem]
+    let groupedItems: [(category: ShoppingCategory, items: [ShoppingItem])]
+    let onToggle: (ShoppingItem) -> Void
+    let onEdit: (ShoppingItem) -> Void
+    let onDelete: (ShoppingItem) -> Void
     let onDeleteAtOffsets: (IndexSet) -> Void
 
     var body: some View {
@@ -36,7 +36,7 @@ struct ShoppingListView: View {
         }
     }
 
-    private func itemRow(for item: Item) -> some View {
+    private func itemRow(for item: ShoppingItem) -> some View {
         ShoppingListItemView(item: item) {
             onToggle(item)
         }
@@ -46,6 +46,7 @@ struct ShoppingListView: View {
             } label: {
                 Label("delete", systemImage: Constants.Icons.trash)
             }
+            .accessibilityIdentifier(Constants.AccessibilityID.deleteAction)
         }
         .swipeActions(edge: .leading, allowsFullSwipe: false) {
             Button {
@@ -54,6 +55,7 @@ struct ShoppingListView: View {
                 Label("edit", systemImage: Constants.Icons.pencil)
             }
             .tint(Constants.Colors.editAction)
+            .accessibilityIdentifier(Constants.AccessibilityID.editAction)
         }
         .contextMenu {
             Button {
@@ -61,11 +63,13 @@ struct ShoppingListView: View {
             } label: {
                 Label("edit", systemImage: Constants.Icons.pencil)
             }
+            .accessibilityIdentifier(Constants.AccessibilityID.editAction)
             Button(role: .destructive) {
                 onDelete(item)
             } label: {
                 Label("delete", systemImage: Constants.Icons.trash)
             }
+            .accessibilityIdentifier(Constants.AccessibilityID.deleteAction)
         }
     }
 }

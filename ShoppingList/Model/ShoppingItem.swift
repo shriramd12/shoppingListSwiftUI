@@ -10,7 +10,7 @@ import SwiftData
 
 // MARK: - Category
 
-enum Category: String, CaseIterable, Codable {
+enum ShoppingCategory: String, CaseIterable, Codable {
     case milk       = "Milk"
     case vegetables = "Vegetables"
     case fruits     = "Fruits"
@@ -47,13 +47,13 @@ enum Category: String, CaseIterable, Codable {
 // MARK: - Item Model
 
 @Model
-final class Item {
+final class ShoppingItem {
     var name: String
-    var category: Category
+    var category: ShoppingCategory
     var isPurchased: Bool
     var dateAdded: Date
 
-    init(name: String, category: Category, isPurchased: Bool = false, dateAdded: Date = .now) {
+    init(name: String, category: ShoppingCategory, isPurchased: Bool = false, dateAdded: Date = .now) {
         self.name = name
         self.category = category
         self.isPurchased = isPurchased

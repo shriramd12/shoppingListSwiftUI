@@ -14,15 +14,15 @@ struct ShoppingListContainerView: View {
     // Fetch all items, sorted alphabetically. Purchased/unpurchased
     // ordering is applied in `filteredItems` since Bool isn't
     // supported by SwiftData's SortDescriptor.
-    @Query(sort: \Item.name) private var items: [Item]
+    @Query(sort: \ShoppingItem.name) private var items: [ShoppingItem]
 
-    @State private var itemToEdit: Item? = nil
-    @State private var selectedCategory: Category? = nil  // nil = "All"
+    @State private var itemToEdit: ShoppingItem? = nil
+    @State private var selectedCategory: ShoppingCategory? = nil  // nil = "All"
 
     // Items filtered by the selected category chip, then sorted so
     // unpurchased items appear first, with alphabetical ordering within
     // each group.
-    private var filteredItems: [Item] {
+    private var filteredItems: [ShoppingItem] {
         let source = selectedCategory == nil ? items : items.filter { $0.category == selectedCategory }
         return source.sorted {
             if $0.isPurchased != $1.isPurchased { return !$0.isPurchased }
@@ -31,8 +31,8 @@ struct ShoppingListContainerView: View {
     }
 
     /// Items grouped by category, only used when "All" filter is active.
-    private var groupedItems: [(category: Category, items: [Item])] {
-        Category.allCases.compactMap { category in
+    private var groupedItems: [(category: ShoppingCategory, items: [ShoppingItem])] {
+        ShoppingCategory.allCases.compactMap { category in
             let categoryItems = filteredItems.filter { $0.category == category }
             return categoryItems.isEmpty ? nil : (category, categoryItems)
         }
@@ -50,7 +50,7 @@ struct ShoppingListContainerView: View {
                 } else {
                     // Category filter chips section
                     Section {
-                        FilterView(selectedCategory: $selectedCategory)
+                        FilterView(selectedCategory: $selectedCategory, parentID: "shopping_list")
                             .listRowInsets(EdgeInsets())
                             .listRowBackground(Color.clear)
                     }
@@ -88,13 +88,13 @@ struct ShoppingListContainerView: View {
 
     // MARK: - Actions
 
-    private func togglePurchased(_ item: Item) {
+    private func togglePurchased(_ item: ShoppingItem) {
         withAnimation {
             item.isPurchased.toggle()
         }
     }
 
-    private func deleteItem(_ item: Item) {
+    private func deleteItem(_ item: ShoppingItem) {
         withAnimation {
             modelContext.delete(item)
         }
@@ -113,9 +113,9 @@ struct ShoppingListContainerView: View {
 
 #Preview {
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: Item.self, configurations: config)
+    let container = try! ModelContainer(for: ShoppingItem.self, configurations: config)
 
-    let samples: [(String, Category)] = [
+    let samples: [(String, ShoppingCategory)] = [
         ("Whole Milk", .milk),
         ("Sourdough Bread", .breads),
         ("Chicken Breast", .meats),
@@ -124,7 +124,7 @@ struct ShoppingListContainerView: View {
         ("Cheddar Cheese", .milk)
     ]
     for (name, cat) in samples {
-        container.mainContext.insert(Item(name: name, category: cat))
+        container.mainContext.insert(ShoppingItem(name: name, category: cat))
     }
 
     return ShoppingListContainerView()

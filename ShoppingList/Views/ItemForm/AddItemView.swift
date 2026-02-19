@@ -12,7 +12,7 @@ struct InlineAddItemView: View {
     @Environment(\.modelContext) private var modelContext
 
     @State private var name: String = ""
-    @State private var selectedCategory: Category? = .vegetables
+    @State private var selectedCategory: ShoppingCategory? = .vegetables
     @FocusState private var nameFieldFocused: Bool
 
     private var canAdd: Bool {
@@ -27,7 +27,9 @@ struct InlineAddItemView: View {
                 Text("add_item")
                     .font(.headline)
                     .multilineTextAlignment(.center)
-            }.frame(maxWidth: .infinity)
+                    .accessibilityIdentifier(Constants.AccessibilityID.addItemTitle)
+            }
+            .frame(maxWidth: .infinity)
     
             // Category label + filter chips
             VStack(alignment: .leading, spacing: Constants.Spacing.medium) {
@@ -35,7 +37,7 @@ struct InlineAddItemView: View {
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
 
-                FilterView(selectedCategory: $selectedCategory, showAll: false)
+                FilterView(selectedCategory: $selectedCategory, showAll: false, parentID: "add_item")
             }
 
             Text("item_name")
@@ -53,6 +55,7 @@ struct InlineAddItemView: View {
                     in: RoundedRectangle(
                         cornerRadius: Constants.CornerRadius.small
                     ))
+                .accessibilityIdentifier(Constants.AccessibilityID.addItemTextField)
 
             // Full-width add button
             Button(action: addItem) {
@@ -63,6 +66,7 @@ struct InlineAddItemView: View {
             .buttonStyle(.borderedProminent)
             .controlSize(.large)
             .disabled(!canAdd)
+            .accessibilityIdentifier(Constants.AccessibilityID.addItemButton)
             .animation(.easeInOut(duration: Constants.Animation.fast), value: canAdd)
             .listRowInsets(
                 EdgeInsets(
@@ -78,7 +82,7 @@ struct InlineAddItemView: View {
         let trimmed = name.trimmingCharacters(in: .whitespaces)
         guard !trimmed.isEmpty, let category = selectedCategory else { return }
         withAnimation {
-            modelContext.insert(Item(name: trimmed, category: category))
+            modelContext.insert(ShoppingItem(name: trimmed, category: category))
         }
         name = ""
         nameFieldFocused = false
@@ -93,5 +97,5 @@ typealias AddItemView = InlineAddItemView
         InlineAddItemView()
     }
     .listStyle(.insetGrouped)
-    .modelContainer(for: Item.self, inMemory: true)
+    .modelContainer(for: ShoppingItem.self, inMemory: true)
 }

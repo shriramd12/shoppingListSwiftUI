@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct FilterView: View {
-    @Binding var selectedCategory: Category?
+    @Binding var selectedCategory: ShoppingCategory?
     var showAll: Bool = true
+    var parentID: String
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -22,9 +23,10 @@ struct FilterView: View {
                     ) {
                         withAnimation(.easeInOut) { selectedCategory = nil }
                     }
+                    .accessibilityIdentifier(Constants.AccessibilityID.filterAll(parentID))
                 }
 
-                ForEach(Category.allCases, id: \.self) { category in
+                ForEach(ShoppingCategory.allCases, id: \.self) { category in
                     FilterChip(
                         label: category.localizedName,
                         emoji: category.emoji,
@@ -38,6 +40,7 @@ struct FilterView: View {
                             }
                         }
                     }
+                    .accessibilityIdentifier(Constants.AccessibilityID.filterChip(parentID, category.rawValue))
                 }
             }
             .padding(.horizontal)

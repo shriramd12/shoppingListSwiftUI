@@ -33,15 +33,6 @@ enum Constants {
         static let categoryPickerButton: CGFloat = 40
     }
 
-    // MARK: - Shadow
-
-    enum Shadow {
-        static let opacity: Double = 0.08
-        static let radius: CGFloat = 8
-        static let x: CGFloat = 0
-        static let y: CGFloat = 2
-    }
-
     // MARK: - Animation
 
     enum Animation {
@@ -62,15 +53,45 @@ enum Constants {
         static let trash = "trash"
     }
 
+    // MARK: - Accessibility Identifiers
+
+    enum AccessibilityID {
+        // Add Item Section
+        static let addItemTitle = "add_item_title"
+        static let addItemTextField = "add_item_text_field"
+        static let addItemButton = "add_item_button"
+
+        // Filter
+        static func filterAll(_ parent: String) -> String { "\(parent)_filter_chip_all" }
+        static func filterChip(_ parent: String, _ category: String) -> String { "\(parent)_filter_chip_\(category)" }
+
+        // Shopping List Items
+        static func itemRow(_ name: String) -> String { "item_row_\(name)" }
+        static func itemToggle(_ name: String) -> String { "item_toggle_\(name)" }
+
+        // Empty State
+        static let emptyStateTitle = "empty_state_title"
+        static let emptyStateBody = "empty_state_body_text"
+        static let clearFilterButton = "clear_filter_button"
+
+        // Edit Item
+        static let editItemNameField = "edit_item_name_field"
+        static let editItemCancelButton = "edit_item_cancel"
+        static let editItemSaveButton = "edit_item_save"
+
+        // Swipe & Context Menu
+        static let editAction = "edit_action"
+        static let deleteAction = "delete_action"
+    }
+
     // MARK: - Colors
 
     enum Colors {
         static let chipSelected = Color.accentColor
         static let chipDefault = Color(.systemGray5)
-        static let textFieldBackground = Color(.systemGray6)
+        static let textFieldBackground = Color(.tertiarySystemGroupedBackground)
         static let cardBackground = Color(.systemBackground)
         static let purchased = Color.green
         static let editAction = Color.orange
-        static let cardShadow = Color.black.opacity(Shadow.opacity)
     }
 }

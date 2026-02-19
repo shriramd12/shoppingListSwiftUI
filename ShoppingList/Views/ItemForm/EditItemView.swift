@@ -13,12 +13,12 @@ struct EditItemView: View {
 
     // We edit the SwiftData model object directly; changes are
     // automatically tracked and saved by the model context.
-    let item: Item
+    let item: ShoppingItem
 
     @State private var name: String
-    @State private var selectedCategory: Category
+    @State private var selectedCategory: ShoppingCategory
 
-    init(item: Item) {
+    init(item: ShoppingItem) {
         self.item = item
         // Seed state from the existing item's current values
         _name = State(initialValue: item.name)
@@ -35,9 +35,10 @@ struct EditItemView: View {
                 Section("item_details") {
                     TextField("item_name", text: $name)
                         .autocorrectionDisabled()
+                        .accessibilityIdentifier(Constants.AccessibilityID.editItemNameField)
 
                     Picker("category", selection: $selectedCategory) {
-                        ForEach(Category.allCases, id: \.self) { category in
+                        ForEach(ShoppingCategory.allCases, id: \.self) { category in
                             Label(category.localizedName, systemImage: "")
                                 .tag(category)
                         }
@@ -53,6 +54,7 @@ struct EditItemView: View {
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("cancel") { dismiss() }
+                        .accessibilityIdentifier(Constants.AccessibilityID.editItemCancelButton)
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("save") {
@@ -60,13 +62,14 @@ struct EditItemView: View {
                     }
                     .disabled(!canSave)
                     .fontWeight(.semibold)
+                    .accessibilityIdentifier(Constants.AccessibilityID.editItemSaveButton)
                 }
             }
         }
     }
 
-    private var previewItem: Item {
-        Item(
+    private var previewItem: ShoppingItem {
+        ShoppingItem(
             name: name.trimmingCharacters(in: .whitespaces).isEmpty ? item.name : name,
             category: selectedCategory,
             isPurchased: item.isPurchased
@@ -84,8 +87,8 @@ struct EditItemView: View {
 
 #Preview {
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: Item.self, configurations: config)
-    let sample = Item(name: "Whole Milk", category: .milk)
+    let container = try! ModelContainer(for: ShoppingItem.self, configurations: config)
+    let sample = ShoppingItem(name: "Whole Milk", category: .milk)
     container.mainContext.insert(sample)
 
     return EditItemView(item: sample)

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ShoppingListItemView: View {
-    let item: Item
+    let item: ShoppingItem
     let onToggle: () -> Void
 
     var body: some View {
@@ -21,6 +21,7 @@ struct ShoppingListItemView: View {
                     .contentTransition(.symbolEffect(.replace))
             }
             .buttonStyle(.plain)
+            .accessibilityIdentifier(Constants.AccessibilityID.itemToggle(item.name))
 
             // Category emoji badge + item details
             HStack(spacing: Constants.Spacing.medium) {
@@ -34,6 +35,7 @@ struct ShoppingListItemView: View {
                         .font(.body)
                         .strikethrough(item.isPurchased, color: .secondary)
                         .foregroundStyle(item.isPurchased ? .secondary : .primary)
+                        .accessibilityIdentifier(Constants.AccessibilityID.itemRow(item.name))
 
                     Text(item.category.localizedName)
                         .font(.caption)
