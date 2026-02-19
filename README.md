@@ -6,7 +6,6 @@ A SwiftUI shopping list app built with SwiftData for persistent storage. Organiz
 
 [App Demo](https://drive.google.com/file/d/1jt6dtG3OufScRzncnr_uO9IRAgEA8Bdc/view?usp=sharing)
 
-## Tests
 ## Requirements
 
 - Xcode 26.2
@@ -61,6 +60,8 @@ A SwiftUI shopping list app built with SwiftData for persistent storage. Organiz
 - Dark mode support
 - Landscape and portrait orientation support
 - Unit tests (Swift Testing) and UI tests (XCUITest)
+
+## Tests
 
 - **Unit Tests:** Open `ShoppingListTests/ShoppingListTests.swift` and run the tests.
 - **UI Tests:** Open `ShoppingListUITests/ShoppingListUITests.swift` and run the tests.
