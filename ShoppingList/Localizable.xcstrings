@@ -1,0 +1,294 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "add_item_placeholder" : {
+      "comment" : "Placeholder text inside the inline add-item text field",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add an item…"
+          }
+        }
+      }
+    },
+    "add_item" : {
+      "comment" : "Title and button label for the add-item card",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Item"
+          }
+        }
+      }
+    },
+    "empty_state_body" : {
+      "comment" : "Empty state body when no items exist",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add your first item above."
+          }
+        }
+      }
+    },
+    "filter_all" : {
+      "comment" : "Category filter chip that shows all items",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All"
+          }
+        }
+      }
+    },
+    "category_breads" : {
+      "comment" : "Category name for breads and bakery",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Breads"
+          }
+        }
+      }
+    },
+    "cancel" : {
+      "comment" : "Cancellation action button in edit-item sheet",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        }
+      }
+    },
+    "category" : {
+      "comment" : "Picker label for selecting a category in the edit form",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Category"
+          }
+        }
+      }
+    },
+    "category_with_colon" : {
+      "comment" : "Label prefix shown below the add-item field indicating the selected category",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Category: "
+          }
+        }
+      }
+    },
+    "clear_filter" : {
+      "comment" : "Button to remove the active category filter",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear Filter"
+          }
+        }
+      }
+    },
+    "delete" : {
+      "comment" : "Swipe action and context menu button to delete an item",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
+          }
+        }
+      }
+    },
+    "edit" : {
+      "comment" : "Swipe action and context menu button to edit an item",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit"
+          }
+        }
+      }
+    },
+    "edit_item" : {
+      "comment" : "Navigation title of the edit-item sheet",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit Item"
+          }
+        }
+      }
+    },
+    "category_fruits" : {
+      "comment" : "Category name for fruits",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fruits"
+          }
+        }
+      }
+    },
+    "item_details" : {
+      "comment" : "Section header in the edit-item form",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item Details"
+          }
+        }
+      }
+    },
+    "item_name" : {
+      "comment" : "Placeholder for the item name text field in the edit form",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item name"
+          }
+        }
+      }
+    },
+    "category_meats" : {
+      "comment" : "Category name for meat products",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Meats"
+          }
+        }
+      }
+    },
+    "category_milk" : {
+      "comment" : "Category name for dairy/milk products",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Milk"
+          }
+        }
+      }
+    },
+    "no_category_items %@" : {
+      "comment" : "Empty state title when a category filter is active and has no items. %@ is the category name.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No %@"
+          }
+        }
+      }
+    },
+    "no_items_yet" : {
+      "comment" : "Empty state title when the list has no items at all",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Items Yet"
+          }
+        }
+      }
+    },
+    "preview" : {
+      "comment" : "Section header showing a live preview of the item row in the edit form",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preview"
+          }
+        }
+      }
+    },
+    "save" : {
+      "comment" : "Confirmation action button in edit-item sheet",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
+          }
+        }
+      }
+    },
+    "shopping_list" : {
+      "comment" : "Main screen hero header title",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shopping List"
+          }
+        }
+      }
+    },
+    "empty_category_body" : {
+      "comment" : "Empty state body when the active category filter has no items",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There are no items in this category. Try selecting a different filter."
+          }
+        }
+      }
+    },
+    "category_vegetables" : {
+      "comment" : "Category name for vegetables",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vegetables"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.1"
+}
